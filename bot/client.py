@@ -5,8 +5,8 @@ from __future__ import annotations
 import os
 import time
 
+import streamlit as st
 from binance.client import Client
-from dotenv import load_dotenv
 
 from bot.logging_config import setup_logging
 
@@ -24,13 +24,11 @@ def create_futures_client() -> Client:
 
     logger = setup_logging()
 
-    load_dotenv()
-
-    api_key = os.getenv("BINANCE_API_KEY")
-    api_secret = os.getenv("BINANCE_API_SECRET")
+    api_key = st.secrets["BINANCE_API_KEY"]
+    api_secret = st.secrets["BINANCE_API_SECRET"]
 
     if not api_key or not api_secret:
-        message = "Missing BINANCE_API_KEY or BINANCE_API_SECRET in environment."
+        message = "Missing BINANCE_API_KEY or BINANCE_API_SECRET."
         logger.error(message)
         raise BinanceClientError(message)
 
@@ -44,8 +42,8 @@ def create_futures_client() -> Client:
         # Configure Futures Testnet URL
         client.FUTURES_URL = TESTNET_FUTURES_API_URL
 
-        # Sync local timestamp with Binance server
-        server_time = client.get_server_time()
+        # Sync timestamp with Binance server
+        server_time = client.futures_time()
 
         client.timestamp_offset = (
             server_time["serverTime"] - int(time.time() * 1000)
@@ -64,5 +62,5 @@ def create_futures_client() -> Client:
 
 
 def get_client() -> Client:
-    """Return initialized Binance Futures client."""
+    """Return configured Binance Futures client."""
     return create_futures_client()
