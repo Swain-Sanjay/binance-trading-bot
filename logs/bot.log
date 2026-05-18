@@ -1,0 +1,106 @@
+
+2026-05-18 19:34:15 | INFO | trading_bot | client:37 | Initialized Binance Futures Testnet client.
+2026-05-18 19:34:15 | INFO | trading_bot | orders:73 | Order request: {'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'LIMIT', 'timeInForce': 'GTC', 'quantity': '0.001', 'price': '60000'}
+2026-05-18 19:34:17 | ERROR | trading_bot | orders:81 | Binance order request failed: APIError(code=-2014): API-key format invalid.
+Traceback (most recent call last):
+  File "C:\Users\sanja\OneDrive\Desktop\Binance_Tsetnet\trading_bot\bot\orders.py", line 76, in _place_order
+    response = client.futures_create_order(**request_payload)
+  File "C:\Users\sanja\anaconda3\Lib\site-packages\binance\client.py", line 7951, in futures_create_order
+    return self._request_futures_api("post", "order", True, data=params)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sanja\anaconda3\Lib\site-packages\binance\client.py", line 144, in _request_futures_api
+    return self._request(method, uri, signed, force_params, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sanja\anaconda3\Lib\site-packages\binance\client.py", line 107, in _request
+    return self._handle_response(self.response)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\sanja\anaconda3\Lib\site-packages\binance\client.py", line 116, in _handle_response
+    raise BinanceAPIException(response, response.status_code, response.text)
+binance.exceptions.BinanceAPIException: APIError(code=-2014): API-key format invalid.
+2026-05-18 19:34:17 | ERROR | trading_bot | cli:67 | CLI order flow failed: Binance rejected the order: APIError(code=-2014): API-key format invalid.
+2026-05-18 20:01:39 | INFO | trading_bot | client:37 | Initialized Binance Futures Testnet client.
+2026-05-18 20:01:39 | INFO | trading_bot | orders:73 | Order request: {'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'LIMIT', 'timeInForce': 'GTC', 'quantity': '0.001', 'price': '60000'}
+2026-05-18 20:01:41 | INFO | trading_bot | orders:78 | Order response: {'orderId': 13156644196, 'symbol': 'BTCUSDT', 'status': 'NEW', 'clientOrderId': 'x-Cb7ytekJ1ce87ce0f62df09dcd378', 'price': '60000.00', 'avgPrice': '0.00', 'origQty': '0.0010', 'executedQty': '0.0000', 'cumQty': '0.0000', 'cumQuote': '0.000000', 'type': 'LIMIT', 'side': 'BUY', 'timeInForce': 'GTC', 'updateTime': 1779114704178}
+2026-05-18 20:01:41 | INFO | trading_bot | cli:64 | CLI order flow completed successfully.
+2026-05-18 20:05:15 | INFO | trading_bot | client:37 | Initialized Binance Futures Testnet client.
+2026-05-18 20:05:15 | INFO | trading_bot | orders:73 | Order request: {'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'MARKET', 'quantity': '0.001'}
+2026-05-18 20:05:20 | INFO | trading_bot | orders:78 | Order response: {'orderId': 13156661160, 'symbol': 'BTCUSDT', 'status': 'NEW', 'clientOrderId': 'x-Cb7ytekJ6518d65821a523b743c960', 'price': '0.00', 'avgPrice': '0.00', 'origQty': '0.0010', 'executedQty': '0.0000', 'cumQty': '0.0000', 'cumQuote': '0.000000', 'type': 'MARKET', 'side': 'BUY', 'timeInForce': 'GTC', 'updateTime': 1779114923997}
+2026-05-18 20:05:20 | INFO | trading_bot | cli:64 | CLI order flow completed successfully.
+2026-05-18 20:22:34 | ERROR | trading_bot | app:73 | UI order failed
+Traceback (most recent call last):
+  File "C:\Users\sanja\OneDrive\Desktop\Binance_Tsetnet\trading_bot\app.py", line 52, in <module>
+    response = place_market_order(
+        symbol=symbol,
+        side=side,
+        quantity=quantity
+    )
+TypeError: place_market_order() missing 1 required positional argument: 'client'
+2026-05-18 20:22:43 | ERROR | trading_bot | app:73 | UI order failed
+Traceback (most recent call last):
+  File "C:\Users\sanja\OneDrive\Desktop\Binance_Tsetnet\trading_bot\app.py", line 58, in <module>
+    response = place_limit_order(
+        symbol=symbol,
+    ...<2 lines>...
+        price=price
+    )
+TypeError: place_limit_order() missing 1 required positional argument: 'client'
+2026-05-18 20:28:13 | INFO | trading_bot | client:44 | Initialized Binance Futures Testnet client.
+2026-05-18 20:28:53 | INFO | trading_bot | client:44 | Initialized Binance Futures Testnet client.
+2026-05-18 20:28:53 | INFO | trading_bot | orders:73 | Order request: {'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'MARKET', 'quantity': 0.001}
+2026-05-18 20:29:02 | ERROR | trading_bot | orders:81 | Binance order request failed: APIError(code=-1021): Timestamp for this request is outside of the recvWindow.
+Traceback (most recent call last):
+  File "C:\Users\sanja\OneDrive\Desktop\Binance_Tsetnet\trading_bot\bot\orders.py", line 76, in _place_order
+    response = client.futures_create_order(**request_payload)
+  File "C:\Users\sanja\anaconda3\Lib\site-packages\binance\client.py", line 7951, in futures_create_order
+    return self._request_futures_api("post", "order", True, data=params)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sanja\anaconda3\Lib\site-packages\binance\client.py", line 144, in _request_futures_api
+    return self._request(method, uri, signed, force_params, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sanja\anaconda3\Lib\site-packages\binance\client.py", line 107, in _request
+    return self._handle_response(self.response)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\sanja\anaconda3\Lib\site-packages\binance\client.py", line 116, in _handle_response
+    raise BinanceAPIException(response, response.status_code, response.text)
+binance.exceptions.BinanceAPIException: APIError(code=-1021): Timestamp for this request is outside of the recvWindow.
+2026-05-18 20:29:02 | ERROR | trading_bot | app:87 | UI order failed
+Traceback (most recent call last):
+  File "C:\Users\sanja\OneDrive\Desktop\Binance_Tsetnet\trading_bot\bot\orders.py", line 76, in _place_order
+    response = client.futures_create_order(**request_payload)
+  File "C:\Users\sanja\anaconda3\Lib\site-packages\binance\client.py", line 7951, in futures_create_order
+    return self._request_futures_api("post", "order", True, data=params)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sanja\anaconda3\Lib\site-packages\binance\client.py", line 144, in _request_futures_api
+    return self._request(method, uri, signed, force_params, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sanja\anaconda3\Lib\site-packages\binance\client.py", line 107, in _request
+    return self._handle_response(self.response)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\sanja\anaconda3\Lib\site-packages\binance\client.py", line 116, in _handle_response
+    raise BinanceAPIException(response, response.status_code, response.text)
+binance.exceptions.BinanceAPIException: APIError(code=-1021): Timestamp for this request is outside of the recvWindow.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\sanja\OneDrive\Desktop\Binance_Tsetnet\trading_bot\app.py", line 62, in <module>
+    response = place_market_order(
+        client=client,
+    ...<2 lines>...
+        quantity=quantity
+    )
+  File "C:\Users\sanja\OneDrive\Desktop\Binance_Tsetnet\trading_bot\bot\orders.py", line 27, in place_market_order
+    return _place_order(client, request_payload)
+  File "C:\Users\sanja\OneDrive\Desktop\Binance_Tsetnet\trading_bot\bot\orders.py", line 82, in _place_order
+    raise OrderPlacementError(f"Binance rejected the order: {exc}") from exc
+bot.orders.OrderPlacementError: Binance rejected the order: APIError(code=-1021): Timestamp for this request is outside of the recvWindow.
+2026-05-18 20:36:07 | INFO | trading_bot | client:54 | Initialized Binance Futures Testnet client.
+2026-05-18 20:36:12 | INFO | trading_bot | client:54 | Initialized Binance Futures Testnet client.
+2026-05-18 20:36:12 | INFO | trading_bot | orders:73 | Order request: {'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'MARKET', 'quantity': 0.001}
+2026-05-18 20:36:14 | INFO | trading_bot | orders:78 | Order response: {'orderId': 13156781709, 'symbol': 'BTCUSDT', 'status': 'NEW', 'clientOrderId': 'x-Cb7ytekJa6b0d7653285f91e15417b', 'price': '0.00', 'avgPrice': '0.00', 'origQty': '0.0010', 'executedQty': '0.0000', 'cumQty': '0.0000', 'cumQuote': '0.000000', 'type': 'MARKET', 'side': 'BUY', 'timeInForce': 'GTC', 'updateTime': 1779116778180}
+2026-05-18 20:36:14 | INFO | trading_bot | app:84 | UI order submitted successfully
+2026-05-18 20:36:51 | INFO | trading_bot | client:54 | Initialized Binance Futures Testnet client.
+2026-05-18 20:37:03 | INFO | trading_bot | client:54 | Initialized Binance Futures Testnet client.
+2026-05-18 20:37:03 | INFO | trading_bot | orders:73 | Order request: {'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'LIMIT', 'timeInForce': 'GTC', 'quantity': 0.001, 'price': 60000.0}
+2026-05-18 20:37:04 | INFO | trading_bot | orders:78 | Order response: {'orderId': 13156784772, 'symbol': 'BTCUSDT', 'status': 'NEW', 'clientOrderId': 'x-Cb7ytekJ5b18cb1a4e41ad7c58e10e', 'price': '60000.00', 'avgPrice': '0.00', 'origQty': '0.0010', 'executedQty': '0.0000', 'cumQty': '0.0000', 'cumQuote': '0.000000', 'type': 'LIMIT', 'side': 'BUY', 'timeInForce': 'GTC', 'updateTime': 1779116827835}
+2026-05-18 20:37:04 | INFO | trading_bot | app:84 | UI order submitted successfully
